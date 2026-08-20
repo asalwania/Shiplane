@@ -1,4 +1,4 @@
-# Dev on Web Skills
+# Shiplane
 
 A set of [Agent Skills](https://agentskills.io) for building on the web — pages, components, routes, and APIs — carried from a rough idea to something shipped, verified in a real browser, and written up. One skill per phase, for any AI coding agent that speaks the Agent Skills format.
 
@@ -32,10 +32,10 @@ Using [npx skills](https://github.com/vercel-labs/skills):
 
 ```bash
 # Claude Code (installs into .claude/skills, then restart)
-npx skills@latest add <your-org>/dev-on-web-skills -a claude-code
+npx skills@latest add <your-org>/shiplane -a claude-code
 
 # Generic .agents/skills, read by other Agent Skills clients
-npx skills@latest add <your-org>/dev-on-web-skills
+npx skills@latest add <your-org>/shiplane
 ```
 
 Works with any Agent Skills client (Claude Code, Cursor, Codex, Gemini CLI, and [more](https://agentskills.io/clients)). Commit the installed skills folder so the whole team shares the same workflow.
