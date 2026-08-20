@@ -1,6 +1,6 @@
 ---
 name: survey
-allowed-tools: Read, Write, Edit, Grep, Glob
+allowed-tools: Read, Write, Edit, Grep, Glob, Agent
 description: Bootstrap AGENTS.md by inspecting a real web codebase for its framework, rendering mode, routing, styling system, component library, build tooling, and deploy target. Use when onboarding onto an existing codebase, right after blueprint scaffolds a new one, auditing one area of a large codebase, filling gaps in an AGENTS.md missing sections, or recording what agent tooling a project relies on.
 ---
 
@@ -34,7 +34,8 @@ Read, don't ask, wherever the answer is in the repo:
 | Called against one directory, not the whole repo | [modes/area.md](modes/area.md) |
 | `AGENTS.md` exists but is missing sections | [modes/gapfill.md](modes/gapfill.md) |
 | Recording installed MCP servers / agent skills / CI gates | [modes/tool-skills.md](modes/tool-skills.md) |
-| Onboarding onto an existing codebase with no `AGENTS.md` at all | run "What it inspects" directly below, no mode file needed |
+| Onboarding onto a small-to-medium existing codebase with no `AGENTS.md` at all | run "What it inspects" directly below, no mode file needed |
+| Same, but the codebase is large (hundreds of source files, or several distinct top-level areas) | [modes/large-repo.md](modes/large-repo.md) — offload the read so it doesn't flood context |
 
 **Monorepo:** write one root `AGENTS.md` for shared tooling, and use [modes/area.md](modes/area.md) per workspace for what differs.
 

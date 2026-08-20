@@ -1,6 +1,6 @@
 ---
 name: outline
-allowed-tools: Bash, Read, Write, Edit, Grep, Glob, AskUserQuestion
+allowed-tools: Bash, Read, Write, Edit, Grep, Glob, Agent, AskUserQuestion
 description: Turn a web product idea into a living, ordered plan of the pages, routes, and flows to build, with a browser/device support target, a delivery approach, and a workflow depth. Use when starting a new web project, planning the next slice of an existing one, enrolling one new named feature, working in a monorepo, or checking where an in-flight project stands with no other arguments given.
 ---
 

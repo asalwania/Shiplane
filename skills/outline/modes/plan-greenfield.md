@@ -7,7 +7,8 @@ No code exists yet for this project.
 3. Record the browser/device support target (e.g. "last 2 versions of evergreen browsers, no IE, mobile-first down to 360px"). Every later `blueprint` and `trial` pass reads this instead of guessing.
 4. Ask which delivery approach fits — [approaches/tracer-bullet.md](../approaches/tracer-bullet.md), [approaches/skateboard.md](../approaches/skateboard.md), [approaches/facade.md](../approaches/facade.md), or [approaches/journey.md](../approaches/journey.md) — and record the pick as the project default. Any single feature can override it later.
 5. Pick the workflow depth from the table in `SKILL.md` and state it in the file.
-6. Write `docs/scope/<project>.md` from the template.
+6. Ask the references question — [../internal/references.md](../internal/references.md) — before writing.
+7. Write `docs/scope/<project>.md` from the template.
 
 ## Handoff
 
