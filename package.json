@@ -1,0 +1,22 @@
+{
+  "name": "dev-on-web-skills",
+  "version": "0.1.0",
+  "description": "A phase-based Agent Skills workflow for building on the web: pages, components, routes, and APIs, taken from idea to shipped with rendering strategy, design tokens, accessibility, and performance treated as first-class decisions.",
+  "keywords": [
+    "agent-skills",
+    "claude-code",
+    "web-development",
+    "frontend",
+    "developer-tools",
+    "ai-coding"
+  ],
+  "license": "MIT",
+  "author": "Dev on Web Skills Contributors",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "check": "node scripts/check.mjs"
+  }
+}
