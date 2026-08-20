@@ -47,7 +47,30 @@ function checkSkill(name) {
   if (lineCount > HARD_LINE_BUDGET) errors.push(`SKILL.md is ${lineCount} lines, over the hard budget of ${HARD_LINE_BUDGET}`);
   else if (lineCount > SOFT_LINE_BUDGET) warnings.push(`SKILL.md is ${lineCount} lines, over the soft budget of ${SOFT_LINE_BUDGET} — move rarely-needed content to a bundled file`);
 
+  errors.push(...checkOpenaiAdapter(name));
+
   return { name, errors, warnings };
+}
+
+// Every skill ships an OpenAI Codex adapter at agents/openai.yaml, so the same
+// skill installs for Codex users without a second copy of the instructions.
+function checkOpenaiAdapter(name) {
+  const errors = [];
+  const path = join(SKILLS_DIR, name, "agents", "openai.yaml");
+
+  let text;
+  try {
+    text = readFileSync(path, "utf8");
+  } catch {
+    errors.push("missing agents/openai.yaml (OpenAI Codex adapter)");
+    return errors;
+  }
+
+  for (const field of ["interface:", "display_name:", "short_description:", "default_prompt:"]) {
+    if (!text.includes(field)) errors.push(`agents/openai.yaml missing \`${field.replace(":", "")}\` field`);
+  }
+
+  return errors;
 }
 
 const skillNames = readdirSync(SKILLS_DIR).filter((entry) => statSync(join(SKILLS_DIR, entry)).isDirectory());
