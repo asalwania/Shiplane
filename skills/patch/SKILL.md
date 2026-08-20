@@ -20,6 +20,18 @@ A loop, not a guess-and-check: reproduce, localize, hypothesize, fix, verify. No
 5. **Fix the root cause**, not the symptom it produced. If the real fix is larger than the bug warrants, say so and let the developer decide whether to fix now or file it.
 6. **Verify** by reproducing the original steps and confirming the failure is gone, plus a quick check that nearby behavior didn't regress.
 
+## Optional: run it in a subagent
+
+For a hunt that isn't trivial, spawn an investigation subagent so the iterative digging doesn't fill the main context: a strong model, `Read`/`Bash`/`Grep`/`Glob`/`Edit` tools, and this loop plus the captured symptom and the relevant part of `AGENTS.md` as its prompt. Require it to report the root cause with evidence, not just "fixed it."
+
+## Asks vs acts
+
+Acts throughout the loop. Asks only when the bug can't be reproduced from what it's given — then it asks for exact steps, inputs, environment, and observed vs. expected behavior, since a bug that can't be reproduced can't be confirmed fixed.
+
+## Artifact ownership
+
+Writes the minimal code fix for the root cause. Doesn't add features, refactor unrelated code, or rewrite a spec. If the bug reveals a flawed decision rather than a coding mistake, it says so and points to `blueprint` instead of papering over it.
+
 ## Handoff
 
 Hand the reproduction steps to `test` as a regression test: written failing against the old code first, then passing after the fix, so it stays proof rather than decoration.

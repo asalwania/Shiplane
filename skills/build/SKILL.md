@@ -10,11 +10,13 @@ Builds one scope item at a time, against its spec's acceptance criteria — not 
 ## Steps
 
 1. **Find the work.** No target given: read `docs/scope/` and take the next `todo` item in build order.
-2. **Check for a spec.** If the item needs a load-bearing decision (see `blueprint`'s definition) and none exists, stop and name the missing decision — don't invent one silently. The developer may override and build anyway; if so, record the assumption as an `Assumed` spec in `docs/specs/` before writing code, so the gap is tracked instead of lost.
-3. **Read `AGENTS.md`** for the real build/dev commands, routing convention, and where this kind of file lives by project convention. Don't guess a folder structure a scaffolding tool would have generated differently.
-4. **Build against the spec's decisions**, not around them: use the token source it named, hit the API contract it defined, meet the accessibility and performance budget it set (semantic elements over ARIA patches, real `<button>`/`<a>` over clickable `<div>`s, images sized and lazy-loaded per the performance row).
-5. **Wire it in** — route registration, nav entry, or export — so the feature is reachable, not just present in the tree.
-6. **Update the scope item's status** to `in progress` while building, and leave it there; `trial` or the developer marks it `done`.
+2. **Team-safety and resume checks first** — [flow/git.md](flow/git.md): behind the shared branch, uncommitted work already in the area, a half-built feature to resume rather than restart.
+3. **Check for a spec.** If the item needs a load-bearing decision (see `blueprint`'s definition) and none exists, stop and name the missing decision — don't invent one silently. The developer may override and build anyway; if so, record the assumption as an `Assumed` spec in `docs/specs/` before writing code, so the gap is tracked instead of lost.
+4. **Read `AGENTS.md`** for the real build/dev commands, routing convention, and where this kind of file lives by project convention. Don't guess a folder structure a scaffolding tool would have generated differently.
+5. **Build.** Backend or full-stack work follows the fixed order in [flow/build.md](flow/build.md) (data layer, logic, endpoints, then UI); a pure front-end piece against an already-built API starts straight at [ui-guide.md](ui-guide.md). Logic/data/API detail lives in [logical-guide.md](logical-guide.md).
+6. **Wire it in** — route registration, nav entry, or export — so the feature is reachable, not just present in the tree.
+7. **Self-check** against [checklist.md](checklist.md) before reporting anything done.
+8. **Update the scope item's status** to `in progress` while building, and leave it there; `trial` or the developer marks it `done`.
 
 ## Handoff
 

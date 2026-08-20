@@ -9,13 +9,17 @@ Reports what it finds. Never edits code, never marks anything `done` — that's 
 
 ## Steps
 
-Read the diff cold, as if reviewing a stranger's PR — don't reuse `build`'s reasoning.
+1. Spawn the review per [review-agent-prompt.md](review-agent-prompt.md) — on a model that did not write the code, the one invariant this skill exists to guarantee.
+2. The rubric it follows and the report format are in [review-guide.md](review-guide.md).
+3. Relay the findings, ranked by what would actually break something over style nits.
 
-- **Semantic HTML** — right element for the job, heading levels that nest without skipping, landmarks present.
-- **CSS architecture** — specificity fights, styles that leak past their component's boundary, hardcoded values that should be tokens.
-- **Bundle impact** — a new dependency or a large asset added for a small feature; flag it, don't block on it.
-- **Injection/XSS risk** — unescaped user content reaching the DOM, `dangerouslySetInnerHTML`/`innerHTML` equivalents without sanitization, unvalidated input reaching a query.
-- Write findings to `docs/reviews/<date>-<feature>-review.md`, ranked by what would actually break something over style nits.
+## Asks vs acts
+
+Acts, with one exception: confirms the author model before spawning a reviewer, since guessing wrong silently turns the review into a same-model review of its own work. Everything else — scoping, reviewing, writing findings — runs without asking.
+
+## Artifact ownership
+
+Owns `docs/reviews/<date>-<feature>-review.md`. Reads code and diffs; writes no code.
 
 ## Handoff
 

@@ -9,14 +9,17 @@ Targets the uncommitted diff by default — don't go hunting for unrelated cover
 
 ## Steps
 
-1. **Find the framework**, don't assume one: check `AGENTS.md` first; if this is the first test in the project, ask which the developer wants and record the answer in `AGENTS.md` so this step is skipped next time.
-2. **Match the test to what changed:**
-   - A component: render it, assert on rendered output and behavior on interaction (click, type, keyboard), not on internal state.
-   - A route or API endpoint: request/response shape, status codes, and the error cases the spec's acceptance criteria named.
-   - A full user flow spanning multiple pages (checkout, sign-up): one end-to-end test, not a unit test per page.
-3. **A regression test from `patch`** gets written first, in a failing state against the pre-fix code if that's still checked out, then confirmed passing after the fix — that's what proves the fix actually fixes it.
-4. Cover the failure paths the spec called out (a required field missing, a request that 404s) alongside the happy path — a suite that only proves success proves less than it looks like.
-5. Run the suite. A new test that doesn't run, or that passes without asserting anything meaningful, isn't done.
+1. **First run in this project?** No test-framework line recorded in `AGENTS.md` yet — read [modes/setup.md](modes/setup.md) first, then continue below.
+2. Follow [agent-prompt.md](agent-prompt.md), the operating template, for scoping, classifying, writing, and running the suite.
+3. Strategy per file type, the regression-test sequence, and the report format all live in [writing-guide.md](writing-guide.md).
+
+## Asks vs acts
+
+Acts once the framework is known. Asks only on first run (which framework, per [modes/setup.md](modes/setup.md)) and when the scope is genuinely ambiguous (no uncommitted changes).
+
+## Artifact ownership
+
+Owns test files matching the project's recorded pattern, and the testing section of `AGENTS.md` it writes on first run.
 
 ## Handoff
 

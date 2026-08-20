@@ -2,6 +2,7 @@
 
 **Workflow depth:** {Prototype | Alpha | Beta | GA}
 **Browser/device support:** {e.g. last 2 evergreen browsers, mobile-first from 360px}
+**Delivery approach:** {tracer-bullet | skateboard | facade | journey} — project default; a feature row may override it
 
 ## Flows
 

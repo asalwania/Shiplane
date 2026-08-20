@@ -17,6 +17,8 @@
     "node": ">=18"
   },
   "scripts": {
-    "check": "node scripts/check.mjs"
+    "check": "node scripts/check-portability.mjs",
+    "test": "npm run check",
+    "tokens": "node scripts/analyze-token-usage.mjs"
   }
 }
