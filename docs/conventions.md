@@ -29,6 +29,12 @@ Once a skill has more than one real branch (a mode, a delivery approach, a per-s
 
 Every skill writes in the same voice toward the person reading its output — a completion summary, a scope entry, a spec, a review or verify report — and that voice is defined in exactly one place: the shared `<!-- OUTPUT-STYLE:START -->...END -->` block, repeated byte-identical in every `SKILL.md`. It states findings and next steps as recommendations, never orders, and points at the file that holds the detail instead of restating it. This is the one rule this file's own "state it once" principle exempts: each `SKILL.md` must stand alone for distribution, so the block is duplicated on purpose rather than factored into a shared file no client would read. `npm run check` fails a skill whose block is missing or has drifted from the others — treat a failure there as a real bug, not a wording preference.
 
+## No dash, no hyphen, in a skill's own prose
+
+Adopted from js Mastry Skills on 2026-08-20: every `SKILL.md` and bundled file (mode, template, guide, prompt) writes in plain words, with no em dash, no en dash, and no hyphen used as punctuation or in a compound word. Write `read only`, not `read-only`; reword with a comma, a colon, or parentheses instead of a dash. The reason is the same one the shared output style block states to the reader: a skill's own instructions set the register the model writes in, so instructions full of dashes teach the model to hand the developer dashes back. Code, inline code spans, file paths, command flags, markdown link targets, and bare URLs keep their hyphens as normal; `npm run check` masks those regions before it flags anything, mirroring how js Mastry's own `check-portability.mjs` does it.
+
+This applies to every skill's own body and bundled files, the same scope the rest of `npm run check` already covers. It does not reach into this file, `docs/workflow-guide.md`, `README.md`, or `AGENTS.md` — those are project documentation, not a skill's output to a developer, and rewriting them wasn't part of what adopting the rule was meant to fix.
+
 ## Declare `allowed-tools`, name it `Agent`
 
 Every skill's frontmatter carries `allowed-tools`, the real list this skill's steps use — not a maximal list "just in case." When a skill spawns a subagent, the entry is `Agent`; the legacy `Task` name is stale wording some tool docs still use and `npm run check` rejects it. Update the list when a step starts or stops needing a tool — a skill that only reads and reports doesn't need `Write` on the list because some other skill has it.

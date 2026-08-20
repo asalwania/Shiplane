@@ -1,9 +1,9 @@
 # Template: postmortem
 
-`docs/postmortems/<date>-<slug>.md`. Git won't contain the incident narrative — ask the developer for what broke, when (with timezone), user impact, how it was detected, and the root cause/fix (point to any `/patch` output if it exists). Never invent a timeline entry or a cause beyond what's given.
+`docs/postmortems/<date>-<slug>.md`. Git won't contain the incident narrative; ask the developer for what broke, when (with timezone), user impact, how it was detected, and the root cause/fix (point to any `/patch` output if it exists). Never invent a timeline entry or a cause beyond what's given.
 
 ```markdown
-# <date> — <what broke, one line>
+# <date>: <what broke, one line>
 
 ## Impact
 
@@ -11,11 +11,11 @@
 
 ## Timeline
 
-- <time> — <what happened>
+- <time>: <what happened>
 
 ## Root cause
 
-<the proven cause — from /patch's output if it ran, otherwise what the developer reported>
+<the proven cause (from /patch's output if it ran, otherwise what the developer reported)>
 
 ## Fix
 

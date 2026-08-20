@@ -27,4 +27,4 @@
 <Anything that helps the review: a tricky decision, a deliberate tradeoff. Omit if nothing.>
 ```
 
-Group changes by intent, not by file. If `review` findings exist for this change, reference any accepted residual risk under "Risk & rollout." Don't invent verify steps — derive them from the spec's actual acceptance criteria.
+Group changes by intent, not by file. If `review` findings exist for this change, reference any accepted residual risk under "Risk & rollout." Don't invent verify steps; derive them from the spec's actual acceptance criteria.

@@ -1,5 +1,7 @@
 # Project: Shiplane
 
+See [AGENTS.md](AGENTS.md) for what this repo is, its scripts, and its tooling.
+
 A set of Agent Skills for building on the web — pages, components, routes, and APIs — phase by phase. Nothing is mandatory: run whichever skill the change in front of you needs, in whatever order fits.
 
 ## Ground rules

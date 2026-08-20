@@ -21,6 +21,12 @@
 //     in every SKILL.md and byte-identical across all of them — this is
 //     the one deliberately duplicated rule (docs/conventions.md), so a
 //     copy that's drifted is a real bug, not a style choice.
+//  7. No em dash or en dash anywhere in a skill's prose, including
+//     `description` — the output style block tells the model to write
+//     without them, so the instructions it reads must set that example.
+//  8. No hyphen used as prose punctuation or in a compound word (write
+//     `read only`, not `read-only`); code, inline code spans, markdown
+//     link targets, bare URLs, and frontmatter keys keep theirs.
 //
 // No dependencies on purpose — this repo's only build step should never need `npm install`.
 
@@ -39,6 +45,25 @@ const MODEL_ALIAS_RE = /\bmodel\s*[:=]\s*["'`]?(haiku|sonnet|opus|fable)\b/i;
 const TOOL_NAMING_RE = /\bthe\s+(Agent|Task)\s+tool\b|\bspawn\s+an?\s+Agent\b/;
 const POWERSHELL_UNSAFE_RE = />\s*\/dev\/null|&&\s*[A-Za-z_][A-Za-z0-9_]*=|\|\|\s*[A-Za-z_][A-Za-z0-9_]*=/;
 const OUTPUT_STYLE_RE = /<!-- OUTPUT-STYLE:START -->[\s\S]*?<!-- OUTPUT-STYLE:END -->/;
+const EM_EN_DASH_RE = /[—–]/;
+const HYPHEN_WORD_RE = /[A-Za-z][A-Za-z0-9]*(?:-[A-Za-z0-9]+)+/g;
+
+// Rules 7 and 8 read prose only: mask every region that's allowed to keep
+// dashes and hyphens (code, links, URLs, frontmatter keys) with spaces of
+// the same length, so line numbers still line up for the violations left.
+const MASK = (s) => " ".repeat(s.length);
+function proseOnly(text) {
+  return text
+    .replace(/```[\s\S]*?```/g, MASK)
+    .replace(/`[^`\n]+`/g, MASK)
+    .replace(/<!--[\s\S]*?-->/g, MASK)
+    .replace(/\]\([^)]*\)/g, MASK)
+    .replace(/https?:\/\/\S+/g, MASK)
+    .replace(/^---\r?\n[\s\S]*?\r?\n---/m, (fm) =>
+      fm.split(/\r?\n/).map((l) => (/^description:/.test(l) ? l : MASK(l))).join("\n")
+    );
+}
+const isExemptHyphenTerm = (word) => /^[A-Z0-9-]+$/.test(word);
 
 // BUDGET POLICY. A skill's "bundle" is SKILL.md plus every file it can read
 // on demand (modes/, agent-modes/, patterns/, approaches/, flow/, ui/,
@@ -106,6 +131,13 @@ function checkSkill(name) {
       if (frontmatter.description.length > DESCRIPTION_MAX_CHARS) {
         errors.push(`description is ${frontmatter.description.length} chars, over the ${DESCRIPTION_MAX_CHARS} limit`);
       }
+      if (EM_EN_DASH_RE.test(frontmatter.description)) {
+        errors.push("description contains an em or en dash — it loads into every session and must follow the no-dash output style");
+      }
+      for (const m of frontmatter.description.matchAll(HYPHEN_WORD_RE)) {
+        if (isExemptHyphenTerm(m[0])) continue;
+        errors.push(`description contains hyphenated \`${m[0]}\` — write it as plain words per the output style`);
+      }
     }
 
     if (!frontmatter["allowed-tools"]) errors.push("frontmatter missing `allowed-tools`");
@@ -143,6 +175,24 @@ function checkSkill(name) {
     }
     if (POWERSHELL_UNSAFE_RE.test(content)) {
       warnings.push(`${rel} has shell glue that may break on PowerShell — express it as prose instead`);
+    }
+
+    const contentLines = content.split(/\r?\n/);
+    contentLines.forEach((line, i) => {
+      if (EM_EN_DASH_RE.test(line)) {
+        errors.push(`${rel}:${i + 1}: contains an em or en dash — write it as a comma, a colon, or parentheses instead`);
+      }
+    });
+
+    const masked = proseOnly(content);
+    const seenHyphens = new Set();
+    for (const m of masked.matchAll(HYPHEN_WORD_RE)) {
+      if (isExemptHyphenTerm(m[0])) continue;
+      const line = masked.slice(0, m.index).split(/\r?\n/).length;
+      const key = `${line}:${m[0]}`;
+      if (seenHyphens.has(key)) continue;
+      seenHyphens.add(key);
+      errors.push(`${rel}:${line}: hyphen in prose \`${m[0]}\` — write it as plain words (code, paths, and flags keep theirs)`);
     }
   }
 

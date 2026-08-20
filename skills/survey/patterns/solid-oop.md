@@ -1,4 +1,4 @@
-# Pattern: SOLID object-oriented design
+# Pattern: SOLID object oriented design
 
 Signals: classes with a single clear responsibility, interfaces or abstract base classes that concrete implementations depend on (dependency inversion), small focused interfaces over one large one, extension points designed for subclassing or composition rather than editing existing classes.
 

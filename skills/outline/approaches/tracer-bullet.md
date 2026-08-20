@@ -1,6 +1,6 @@
 # Delivery approach: thin thread first
 
-Build one narrow path that goes all the way through every layer — screen to database — and works end to end, then thicken it. The first `todo` item under this approach is deliberately the smallest full-stack slice, not the smallest UI slice.
+Build one narrow path that goes all the way through every layer, screen to database, and works end to end, then thicken it. The first `todo` item under this approach is deliberately the smallest slice spanning the full stack, not the smallest UI slice.
 
 Good when you want something real and connected as early as possible, and when the biggest risk is an integration that doesn't work, not the visual design.
 

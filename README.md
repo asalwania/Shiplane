@@ -14,18 +14,18 @@ Run `patch` any time something breaks. Run a bare `outline` any time to see wher
 
 ## The skills
 
-| Skill | What it does |
-|---|---|
-| `outline` | Turns a web product idea into a living, ordered plan of pages, routes, and flows, with a browser/device support target. |
-| `survey` | Reads a real web codebase and writes `AGENTS.md`: framework, rendering mode, routing, styling system, build tooling. |
-| `blueprint` | Settles a load-bearing decision (rendering strategy, data layer, tokens, a11y/perf budgets, an API contract) and writes it as a spec. |
-| `build` | Builds a page, component, route, or endpoint from its spec, wired to the project's tokens. Gates to `blueprint` if a decision is missing. |
-| `trial` | Runs the app in a real browser against the spec's acceptance criteria. |
-| `test` | Writes component/unit tests and, when the change spans a full journey, an end-to-end test. |
-| `review` | A fresh-model read for semantic HTML, CSS architecture, bundle impact, and XSS risk. |
-| `log` | Writes the PR body, changelog entry, or release note from the real diff. |
-| `sync` | Reconciles `AGENTS.md`, the scope, and spec statuses with what the repo now shows. |
-| `patch` | Runs a reproduce → localize → hypothesize → fix → verify loop for a web bug, then hands `test` a regression test. |
+| Skill       | What it does                                                                                                                              |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| `outline`   | Turns a web product idea into a living, ordered plan of pages, routes, and flows, with a browser/device support target.                   |
+| `survey`    | Reads a real web codebase and writes `AGENTS.md`: framework, rendering mode, routing, styling system, build tooling.                      |
+| `blueprint` | Settles a load-bearing decision (rendering strategy, data layer, tokens, a11y/perf budgets, an API contract) and writes it as a spec.     |
+| `build`     | Builds a page, component, route, or endpoint from its spec, wired to the project's tokens. Gates to `blueprint` if a decision is missing. |
+| `trial`     | Runs the app in a real browser against the spec's acceptance criteria.                                                                    |
+| `test`      | Writes component/unit tests and, when the change spans a full journey, an end-to-end test.                                                |
+| `review`    | A fresh-model read for semantic HTML, CSS architecture, bundle impact, and XSS risk.                                                      |
+| `log`       | Writes the PR body, changelog entry, or release note from the real diff.                                                                  |
+| `sync`      | Reconciles `AGENTS.md`, the scope, and spec statuses with what the repo now shows.                                                        |
+| `patch`     | Runs a reproduce → localize → hypothesize → fix → verify loop for a web bug, then hands `test` a regression test.                         |
 
 ## Install
 
@@ -61,21 +61,17 @@ At the end of `outline` you pick a **workflow depth** for the project, overridab
 
 ## What gets written, and where
 
-| Artifact | Path | Owner |
-|---|---|---|
-| Scope | `docs/scope/` | `outline` |
-| Specs | `docs/specs/` | `blueprint` |
-| Context file | `AGENTS.md` (+ a thin `CLAUDE.md` pointer) | `survey`, kept current by `sync` |
-| Review findings | `docs/reviews/` | `trial`, `review` |
-| Tests | your test directories | `test` |
-| App code | your source tree | `build` |
-| Human docs | PR body, `CHANGELOG.md`, `docs/releases/` | `log` |
+| Artifact        | Path                                       | Owner                            |
+| --------------- | ------------------------------------------ | -------------------------------- |
+| Scope           | `docs/scope/`                              | `outline`                        |
+| Specs           | `docs/specs/`                              | `blueprint`                      |
+| Context file    | `AGENTS.md` (+ a thin `CLAUDE.md` pointer) | `survey`, kept current by `sync` |
+| Review findings | `docs/reviews/`                            | `trial`, `review`                |
+| Tests           | your test directories                      | `test`                           |
+| App code        | your source tree                           | `build`                          |
+| Human docs      | PR body, `CHANGELOG.md`, `docs/releases/`  | `log`                            |
 
 State lives in these files, not in a chat session — a fresh session picks up exactly where the last one left off, and the workflow works the same for a solo project or a whole team.
-
-## Contributing
-
-Read [docs/conventions.md](docs/conventions.md) before touching a skill — it covers the description format, size budget, and where a template belongs versus prose. Run `npm run check` before opening a PR; it validates every `SKILL.md`'s frontmatter and flags anything over the size budget.
 
 ## Learn more
 

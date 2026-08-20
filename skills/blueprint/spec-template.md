@@ -18,9 +18,9 @@
 
 ## Acceptance criteria
 
-- [ ] {checkable condition} — value comes from {API field / token / fixed number}
-- [ ] {checkable condition} — value comes from {...}
+- [ ] {checkable condition}: value comes from {API field, token, or fixed number}
+- [ ] {checkable condition}: value comes from {...}
 
 ## Assumptions
 
-{only if Status: Assumed — what's unconfirmed and what would ratify it}
+{only if Status is Assumed: what's unconfirmed and what would ratify it}
