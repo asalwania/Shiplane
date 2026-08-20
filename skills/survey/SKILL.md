@@ -1,9 +1,16 @@
 ---
 name: survey
-description: Bootstrap AGENTS.md context files by inspecting a real web codebase for its framework, rendering mode, routing convention, styling system, component library, build tooling, deploy target, and organizing architecture pattern. Use when onboarding onto an existing web codebase, right after blueprint scaffolds a new one, auditing just one area of a large codebase, filling gaps in an AGENTS.md that's missing sections, or recording what agent tooling a project already relies on.
+allowed-tools: Read, Write, Edit, Grep, Glob
+description: Bootstrap AGENTS.md by inspecting a real web codebase for its framework, rendering mode, routing, styling system, component library, build tooling, and deploy target. Use when onboarding onto an existing codebase, right after blueprint scaffolds a new one, auditing one area of a large codebase, filling gaps in an AGENTS.md missing sections, or recording what agent tooling a project relies on.
 ---
 
 # survey
+
+## Output style
+
+<!-- OUTPUT-STYLE:START -->
+Everything this skill writes for a person to read — a completion summary, a scope entry, a spec, a review or verify report — states findings and next steps as recommendations, never orders: name the suggested next skill or the pending decision, and let the developer choose to run it, skip it, or override it. Lead with the outcome that matters, and point to the file that holds the detail rather than restating it. Never mark a scope item or spec status done or accepted on this skill's say-so alone, beyond what this skill owns.
+<!-- OUTPUT-STYLE:END -->
 
 Produces `AGENTS.md` (plus a two-line `CLAUDE.md` pointer to it, for clients that only read that file) — the stack facts every other skill in this project assumes are already known.
 

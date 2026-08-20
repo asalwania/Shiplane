@@ -1,9 +1,16 @@
 ---
 name: outline
+allowed-tools: Bash, Read, Write, Edit, Grep, Glob, AskUserQuestion
 description: Turn a web product idea into a living, ordered plan of the pages, routes, and flows to build, with a browser/device support target, a delivery approach, and a workflow depth. Use when starting a new web project, planning the next slice of an existing one, enrolling one new named feature, working in a monorepo, or checking where an in-flight project stands with no other arguments given.
 ---
 
 # outline
+
+## Output style
+
+<!-- OUTPUT-STYLE:START -->
+Everything this skill writes for a person to read — a completion summary, a scope entry, a spec, a review or verify report — states findings and next steps as recommendations, never orders: name the suggested next skill or the pending decision, and let the developer choose to run it, skip it, or override it. Lead with the outcome that matters, and point to the file that holds the detail rather than restating it. Never mark a scope item or spec status done or accepted on this skill's say-so alone, beyond what this skill owns.
+<!-- OUTPUT-STYLE:END -->
 
 Produces `docs/scope/<project>.md`: the ordered list of what to build next, kept current as work ships. Use [outline-template.md](outline-template.md) for the file shape.
 

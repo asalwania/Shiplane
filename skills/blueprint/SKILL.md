@@ -1,9 +1,16 @@
 ---
 name: blueprint
-description: Settle a load-bearing web decision — rendering strategy, data-fetching approach, design tokens, an API contract, or accessibility/performance budgets — and write it down as a build spec with acceptance criteria. Use when a decision like this is still open for a scoped item, when a whole new project needs its stack chosen, when the same decision is open on several scoped items at once, or when an existing decision is being reversed.
+allowed-tools: Bash, Read, Write, Edit, Grep, Glob, Agent, AskUserQuestion
+description: Settle a load-bearing web decision — rendering strategy, data-fetching approach, design tokens, an API contract, or a11y/perf budgets — and write it as a build spec with acceptance criteria. Use when a decision like this is open for a scoped item, a new project needs its stack chosen, the same decision is open on several items at once, or an existing decision is being reversed.
 ---
 
 # blueprint
+
+## Output style
+
+<!-- OUTPUT-STYLE:START -->
+Everything this skill writes for a person to read — a completion summary, a scope entry, a spec, a review or verify report — states findings and next steps as recommendations, never orders: name the suggested next skill or the pending decision, and let the developer choose to run it, skip it, or override it. Lead with the outcome that matters, and point to the file that holds the detail rather than restating it. Never mark a scope item or spec status done or accepted on this skill's say-so alone, beyond what this skill owns.
+<!-- OUTPUT-STYLE:END -->
 
 **Load-bearing decision**: one that later work would have to be redone to reverse — not "which icon library" but "client- or server-rendered," not "button corner radius" but "the token scale it's drawn from." Produces one `docs/specs/<NNN>-<slug>.md` per decision, from [spec-template.md](spec-template.md).
 

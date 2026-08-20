@@ -1,9 +1,16 @@
 ---
 name: patch
+allowed-tools: Bash, Read, Edit, Grep, Glob, Agent, AskUserQuestion
 description: Run a disciplined root-cause loop for a web bug — a console error, a broken layout, a hydration mismatch, a failed request, an event that won't fire — and hand a regression test to test once fixed. Use when something is throwing, rendering wrong, or behaving differently than the spec or the developer expects.
 ---
 
 # patch
+
+## Output style
+
+<!-- OUTPUT-STYLE:START -->
+Everything this skill writes for a person to read — a completion summary, a scope entry, a spec, a review or verify report — states findings and next steps as recommendations, never orders: name the suggested next skill or the pending decision, and let the developer choose to run it, skip it, or override it. Lead with the outcome that matters, and point to the file that holds the detail rather than restating it. Never mark a scope item or spec status done or accepted on this skill's say-so alone, beyond what this skill owns.
+<!-- OUTPUT-STYLE:END -->
 
 A loop, not a guess-and-check: reproduce, localize, hypothesize, fix, verify. Not tied to any workflow depth — run it the moment something breaks.
 

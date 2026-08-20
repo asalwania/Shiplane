@@ -1,9 +1,16 @@
 ---
 name: review
+allowed-tools: Read, Write, Grep, Glob, Agent, AskUserQuestion
 description: Give a change a fresh-model senior read of the diff for web-specific issues before it becomes a PR — semantic HTML, CSS architecture, bundle impact, and injection risk. Use when a change is about to become a PR and needs an independent read, offered at Beta tier and above.
 ---
 
 # review
+
+## Output style
+
+<!-- OUTPUT-STYLE:START -->
+Everything this skill writes for a person to read — a completion summary, a scope entry, a spec, a review or verify report — states findings and next steps as recommendations, never orders: name the suggested next skill or the pending decision, and let the developer choose to run it, skip it, or override it. Lead with the outcome that matters, and point to the file that holds the detail rather than restating it. Never mark a scope item or spec status done or accepted on this skill's say-so alone, beyond what this skill owns.
+<!-- OUTPUT-STYLE:END -->
 
 Reports what it finds. Never edits code, never marks anything `done` — that's the developer's call either way.
 

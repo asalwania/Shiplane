@@ -1,9 +1,16 @@
 ---
 name: trial
+allowed-tools: Bash, Read, Write, AskUserQuestion
 description: Prove a change works by running the real app in a browser against the spec's acceptance criteria — not by reading the code. Use when a feature just built needs proving before it's called done, at Alpha tier and above.
 ---
 
 # trial
+
+## Output style
+
+<!-- OUTPUT-STYLE:START -->
+Everything this skill writes for a person to read — a completion summary, a scope entry, a spec, a review or verify report — states findings and next steps as recommendations, never orders: name the suggested next skill or the pending decision, and let the developer choose to run it, skip it, or override it. Lead with the outcome that matters, and point to the file that holds the detail rather than restating it. Never mark a scope item or spec status done or accepted on this skill's say-so alone, beyond what this skill owns.
+<!-- OUTPUT-STYLE:END -->
 
 Reports what it finds. Never edits code, never marks anything `done` — that's the developer's call either way. Governed by [verify-guide.md](verify-guide.md): no cited evidence, no pass, no exception.
 

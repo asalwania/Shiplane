@@ -1,9 +1,16 @@
 ---
 name: log
+allowed-tools: Bash, Read, Write, AskUserQuestion
 description: Write the human-facing text for a finished change — PR description, changelog entry, release note, or postmortem — from the real diff and spec, not from memory of the conversation. Use when a change is ready to open as a PR, land in CHANGELOG.md, ship as a dated release note, or when an incident needs writing up after a patch.
 ---
 
 # log
+
+## Output style
+
+<!-- OUTPUT-STYLE:START -->
+Everything this skill writes for a person to read — a completion summary, a scope entry, a spec, a review or verify report — states findings and next steps as recommendations, never orders: name the suggested next skill or the pending decision, and let the developer choose to run it, skip it, or override it. Lead with the outcome that matters, and point to the file that holds the detail rather than restating it. Never mark a scope item or spec status done or accepted on this skill's say-so alone, beyond what this skill owns.
+<!-- OUTPUT-STYLE:END -->
 
 Reads the actual diff and the spec it satisfies before writing a word — never summarizes from what was discussed in chat, which drifts from what shipped. [agent-prompt.md](agent-prompt.md) is the writing guide every mode follows.
 
