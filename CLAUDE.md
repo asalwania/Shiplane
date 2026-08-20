@@ -5,7 +5,7 @@ A set of Agent Skills for building on the web — pages, components, routes, and
 ## Ground rules
 
 - **The developer owns "done."** A skill recommends a next step and a workflow depth (`Prototype` / `Alpha` / `Beta` / `GA`); it never blocks completion on unchecked boxes.
-- **Web concerns live inside the phase that owns them**, not bolted on at the end: rendering strategy and design tokens are `architect` decisions, browser/console verification is `check verify`, semantic HTML and bundle impact are `check review`.
+- **Web concerns live inside the phase that owns them**, not bolted on at the end: rendering strategy and design tokens are `blueprint` decisions, browser/console verification is `trial`, semantic HTML and bundle impact are `review`.
 - **State lives in files** (`docs/scope/`, `docs/specs/`, `AGENTS.md`), not in chat, so work survives across sessions.
 - **Keep `SKILL.md` lean.** It loads in full on every run. Long or rarely-needed content moves to a bundled file the skill reads only when needed.
 

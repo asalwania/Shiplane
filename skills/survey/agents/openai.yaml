@@ -2,6 +2,6 @@
 # its agent picker. The skill's actual instructions live in ../SKILL.md, which the
 # Agent Skills client installs alongside this file and loads when the skill runs.
 interface:
-  display_name: "Scope"
-  short_description: "Plan the pages, routes, and flows to build"
-  default_prompt: "Run the scope skill: read its SKILL.md and turn the product idea into a living, ordered plan in docs/scope/, with a workflow depth."
+  display_name: "Survey"
+  short_description: "Bootstrap AGENTS.md from a real codebase"
+  default_prompt: "Run the survey skill: read its SKILL.md, inspect the codebase's stack and conventions, and write AGENTS.md so later skills stop re-deriving them."

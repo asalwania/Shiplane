@@ -1,9 +1,9 @@
 ---
-name: debug
+name: patch
 description: Run a disciplined root-cause loop for a web bug — a console error, a broken layout, a hydration mismatch, a failed request, an event that won't fire — and hand a regression test to test once fixed. Use when something is throwing, rendering wrong, or behaving differently than the spec or the developer expects.
 ---
 
-# debug
+# patch
 
 A loop, not a guess-and-check: reproduce, localize, hypothesize, fix, verify. Not tied to any workflow depth — run it the moment something breaks.
 

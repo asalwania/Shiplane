@@ -1,9 +1,9 @@
 ---
-name: audit
-description: Bootstrap AGENTS.md context files by inspecting a real web codebase for its framework, rendering mode, routing convention, styling system, component library, build tooling, and deploy target. Use when onboarding onto an existing web codebase, or right after architect scaffolds a new one so later skills stop re-deriving the stack from scratch.
+name: survey
+description: Bootstrap AGENTS.md context files by inspecting a real web codebase for its framework, rendering mode, routing convention, styling system, component library, build tooling, and deploy target. Use when onboarding onto an existing web codebase, or right after blueprint scaffolds a new one so later skills stop re-deriving the stack from scratch.
 ---
 
-# audit
+# survey
 
 Produces `AGENTS.md` (plus a two-line `CLAUDE.md` pointer to it, for clients that only read that file) — the stack facts every other skill in this project assumes are already known.
 
@@ -22,12 +22,12 @@ Read, don't ask, wherever the answer is in the repo:
 
 1. Read `package.json`, lockfile name (to confirm the package manager), and every config file in the repo root before opening source files.
 2. Sample two or three real files per area above (a route, a component, a style file) to confirm the convention holds, not just what a config claims.
-3. Write `AGENTS.md` at the repo root with one section per area, each stating the fact and the file(s) it was read from, so a future audit can spot drift.
+3. Write `AGENTS.md` at the repo root with one section per area, each stating the fact and the file(s) it was read from, so a future survey can spot drift.
 4. **Monorepo:** write one root `AGENTS.md` for shared tooling, and a nested `AGENTS.md` per workspace for what differs (its own framework, scripts, deploy target).
 5. Write or refresh `CLAUDE.md` as a two-line pointer: "See AGENTS.md for stack, commands, and conventions." Never duplicate content into it.
 
 ## Handoff
 
-Once `AGENTS.md` exists, point to `scope` (brownfield: plan the next slice on top of what's enrolled) or `architect` (a decision is already known to be open).
+Once `AGENTS.md` exists, point to `outline` (brownfield: plan the next slice on top of what's enrolled) or `blueprint` (a decision is already known to be open).
 
-Keeping `AGENTS.md` current after this point is `sync`'s job, not a repeat `audit` run — only re-run this skill after a stack-level change (new framework, new styling system).
+Keeping `AGENTS.md` current after this point is `sync`'s job, not a repeat `survey` run — only re-run this skill after a stack-level change (new framework, new styling system).

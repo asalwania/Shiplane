@@ -1,9 +1,9 @@
 ---
-name: architect
-description: Settle a load-bearing web decision — rendering strategy, data-fetching approach, design tokens, an API contract, or accessibility/performance budgets — and write it down as a build spec with acceptance criteria. Use when a decision like this is still open for a scoped item, or when develop reports one is missing before it can build.
+name: blueprint
+description: Settle a load-bearing web decision — rendering strategy, data-fetching approach, design tokens, an API contract, or accessibility/performance budgets — and write it down as a build spec with acceptance criteria. Use when a decision like this is still open for a scoped item, or when build reports one is missing before it can build.
 ---
 
-# architect
+# blueprint
 
 **Load-bearing decision**: one that later work would have to be redone to reverse — not "which icon library" but "client- or server-rendered," not "button corner radius" but "the token scale it's drawn from." Produces one `docs/specs/<NNN>-<slug>.md` per decision, from [spec-template.md](spec-template.md).
 
@@ -14,7 +14,7 @@ Work through only the categories this item actually needs — a static marketing
 - **Rendering strategy** — CSR, SSR, SSG, or ISR, per route if they differ. State the "why" in one line (SEO need, personalization, build-time data).
 - **Data fetching** — where data is read from, request/response shape, caching or revalidation rule.
 - **Design tokens** — the color, spacing, and type scale this feature draws from. Point at the existing token source (`AGENTS.md` names it); only define new tokens if none exist yet.
-- **Accessibility budget** — the concrete bar: keyboard operability, landmark structure, color contrast ratio, focus visibility. Not "be accessible" — the specific pass/fail checks `check verify` will run.
+- **Accessibility budget** — the concrete bar: keyboard operability, landmark structure, color contrast ratio, focus visibility. Not "be accessible" — the specific pass/fail checks `trial` will run.
 - **Performance budget** — a number, not a feeling: largest bundle addition, an image weight ceiling, a target for largest contentful paint on the slowest supported device.
 - **API contract** — request method, path, payload and response shape, error cases, for any new or changed endpoint.
 
@@ -29,4 +29,4 @@ Work through only the categories this item actually needs — a static marketing
 
 ## Handoff
 
-Point to `develop` to build against the finished spec.
+Point to `build` to build against the finished spec.
