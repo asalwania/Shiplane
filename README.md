@@ -32,10 +32,10 @@ Using [npx skills](https://github.com/vercel-labs/skills):
 
 ```bash
 # Claude Code (installs into .claude/skills, then restart)
-npx skills@latest add <your-org>/shiplane -a claude-code
+npx skills@latest add asalwania/shiplane -a claude-code
 
 # Generic .agents/skills, read by other Agent Skills clients
-npx skills@latest add <your-org>/shiplane
+npx skills@latest add asalwania/shiplane
 ```
 
 Works with any Agent Skills client (Claude Code, Cursor, Codex, Gemini CLI, and [more](https://agentskills.io/clients)). Commit the installed skills folder so the whole team shares the same workflow.
